@@ -1,24 +1,24 @@
 package models;
 
 public class Livre {
-    private double idLivre;
+    private long id;
     private String titre;
     private boolean disponible;
     private String auteur;
 
-    public Livre(double id, String titre, boolean disponible, String auteur) {
-        this.idLivre = id;
+    public Livre(long id, String titre, boolean disponible, String auteur) {
+        this.id = id;
         this.titre = titre;
         this.disponible = disponible;
         this.auteur = auteur;
     }
 
-    public double getIdLivre() {
-        return idLivre;
+    public long getId() {
+        return id;
     }
 
-    public void setIdLivre(double idLivre) {
-        this.idLivre = idLivre;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitre() {
@@ -41,6 +41,8 @@ public class Livre {
         return auteur;
     }
 
+
+
     public void setAuteur(String auteur) {
         this.auteur = auteur;
     }
@@ -53,7 +55,7 @@ public class Livre {
     @Override
     public String toString() {
         return "entities.Livre{" +
-                "idLivre" + idLivre +
+                "idLivre" + id +
                 ", titre='" + titre + "'" +
                 ", disponible=" + disponible +
                 ", auteur='" + auteur + "'" +
