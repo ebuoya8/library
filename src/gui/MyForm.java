@@ -30,6 +30,10 @@ public class MyForm extends JFrame {
     private JButton btnSave;
     private JButton btnCancel;
     private JPanel actionPanel;
+    private JTabbedPane navBar;
+    private JPanel livrePanel;
+    private JPanel adherentPanel;
+    private JLabel tableLivre;
 
     public MyForm() throws HeadlessException {
         setContentPane(mainPanel);
