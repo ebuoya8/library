@@ -6,6 +6,9 @@ public class Livre {
     private boolean disponible;
     private String auteur;
 
+    public Livre() {
+    }
+
     public Livre(long id, String titre, boolean disponible, String auteur) {
         this.id = id;
         this.titre = titre;
@@ -41,8 +44,6 @@ public class Livre {
         return auteur;
     }
 
-
-
     public void setAuteur(String auteur) {
         this.auteur = auteur;
     }
@@ -62,7 +63,4 @@ public class Livre {
                 '}';
     }
 
-    public static class XX {
-
-    }
 }

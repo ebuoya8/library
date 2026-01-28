@@ -20,16 +20,16 @@ public class MyForm extends JFrame {
     private JPanel formPanel;
     private JPanel labelsPanel;
     private JPanel txtFieldsPanel;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
+    private JTextField txtId;
+    private JTextField txtTitre;
+    private JTextField txtAuteur;
     private JRadioButton ouiRadioButton;
     private JRadioButton nonRadioButton;
     ButtonGroup radioBtnGroupe;
     private JTable livreTable;
     private JButton btnSave;
-    private JPanel actionPanel;
     private JButton btnCancel;
+    private JPanel actionPanel;
 
     public MyForm() throws HeadlessException {
         setContentPane(mainPanel);
@@ -57,20 +57,18 @@ public class MyForm extends JFrame {
     }
 
     private Livre buildNewLivre() {
-        // txt from jTextfields
-        // Create new Livre
-        // retrun new livre
+        boolean isDisponible = ouiRadioButton.isSelected();
 
-        return null;
+        return new Livre(Long.parseLong(txtId.getText()),txtTitre.getText(),isDisponible,txtAuteur.getText()); // ajouter les attributs
     }
 
     private void clearTxtFields() {
-        textField1.setText("");
-        textField2.setText("");
-        textField3.setText("");
+        txtId.setText("");
+        txtTitre.setText("");
+        txtAuteur.setText("");
     }
 
-    private DefaultTableModel fillTable() {
+    private DefaultTableModel fillTable () {
         for (long i = 1; i <= 10; i++) {
             Livre livre = new Livre(i, "titre" + i, true, "auteur" + i);
             listeLivre.add(livre);
