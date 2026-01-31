@@ -1,17 +1,23 @@
 package gui;
 
+import models.Adherent;
 import models.Livre;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MyForm extends JFrame {
 
     List<Livre> listeLivre = new ArrayList<>();
-    DefaultTableModel model;
+    List<Adherent> liseAdherent = new ArrayList<>();
+    DefaultTableModel livreModel;
+    DefaultTableModel adherenttModel;
 
     private JPanel mainPanel;
     private JPanel headerPanel;
@@ -34,6 +40,18 @@ public class MyForm extends JFrame {
     private JPanel livrePanel;
     private JPanel adherentPanel;
     private JLabel tableLivre;
+    private JPanel adhTablePanel;
+    private JTable adhTable;
+    private JPanel modadhPanel;
+    private JPanel attributsPanel;
+    private JTextField textID;
+    private JTextField textPrenom;
+    private JTextField textNom;
+    private JTextField textCin;
+    private JTextField textnumTele;
+    private JPanel btnPanel;
+    private JButton btnAjout;
+    private JButton btnSupp;
 
     public MyForm() throws HeadlessException {
         setContentPane(mainPanel);
@@ -45,34 +63,69 @@ public class MyForm extends JFrame {
         radioBtnGroupe.add(ouiRadioButton);
         radioBtnGroupe.add(nonRadioButton);
         nonRadioButton.setSelected(true);
-        model = fillTable();
-        livreTable.setModel(model);
-
+        livreModel = fillLivreTable();
+        livreTable.setModel(livreModel);
         setVisible(true);
+
         btnSave.addActionListener(e -> {
             Livre newLivre = buildNewLivre();
             listeLivre.add(newLivre);
-            model.addRow(new Object[]{newLivre.getId(), newLivre.getTitre(), newLivre.isDisponible(), newLivre.getAuteur()});
-            clearTxtFields();
+            livreModel.addRow(new Object[]{newLivre.getId(), newLivre.getTitre(), newLivre.isDisponible(), newLivre.getAuteur()});
+            clearTxtLivreFields();
         });
         btnCancel.addActionListener(e -> {
-            clearTxtFields();
+            clearTxtLivreFields();
+        });
+        adhTable.addComponentListener(new ComponentAdapter() {
+        });
+
+        adherenttModel = fillAdherentTable();
+        adhTable.setModel(adherenttModel);
+
+
+        btnAjout.addActionListener(e -> {
+            Adherent newAdherent = buildNewAdherent();
+            liseAdherent.add(newAdherent);
+            adherenttModel.addRow(new Object[]{newAdherent.getID(),newAdherent.getPrenom(),newAdherent.getNom(),newAdherent.getCin(),newAdherent.getNmTelephone()});
+            clearTxtLivreFields();
+
+        });
+
+
+        btnSupp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clearTxtAdherentFields();
+            }
         });
     }
 
     private Livre buildNewLivre() {
         boolean isDisponible = ouiRadioButton.isSelected();
 
-        return new Livre(Long.parseLong(txtId.getText()),txtTitre.getText(),isDisponible,txtAuteur.getText()); // ajouter les attributs
+        return new Livre(Long.parseLong(txtId.getText()), txtTitre.getText(), isDisponible, txtAuteur.getText()); // ajouter les attributs
     }
 
-    private void clearTxtFields() {
+    private void clearTxtLivreFields() {
         txtId.setText("");
         txtTitre.setText("");
         txtAuteur.setText("");
     }
 
-    private DefaultTableModel fillTable () {
+    private Adherent buildNewAdherent () {
+        return new Adherent(Long.parseLong(textID.getText()), textPrenom.getText(), textNom.getText(), Long.parseLong(textCin.getText()), Long.parseLong(textnumTele.getText()));
+
+    }
+
+    private void clearTxtAdherentFields (){
+        textID.setText("");
+        textPrenom.setText("");
+        textNom.setText("");
+        textCin.setText("");
+        textnumTele.setText("");
+    }
+
+    private DefaultTableModel fillLivreTable() {
         for (long i = 1; i <= 10; i++) {
             Livre livre = new Livre(i, "titre" + i, true, "auteur" + i);
             listeLivre.add(livre);
@@ -89,6 +142,26 @@ public class MyForm extends JFrame {
         return model;
 
     }
+
+    private DefaultTableModel fillAdherentTable() {
+        for (long i = 1; i <= 10; i++) {
+            Adherent adherent = new Adherent (i, "Prenom" + i, "Nom"+i, i*1111, i*1111111111);
+            liseAdherent.add(adherent);
+        }
+
+        String[] columnNames = {"Id", "Prenom", "Nom", "CIN","nmTelephone"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+
+        for (Adherent adherent : liseAdherent) {
+            model.addRow(new Object[]{adherent.getID(), adherent.getPrenom(), adherent.getNom(), adherent.getCin(),adherent.getNmTelephone()});
+        }
+
+        return model;
+
+    }
+
+
 
     public static void main(String[] args) {
         new MyForm();

@@ -1,26 +1,26 @@
 package models;
 
-public class Adhérent {
-    private double idAdh;
+public class Adherent {
+    private long ID;
     private String prenom;
     private String nom;
-    private double cin;
-    private double nmTéléphone ;
+    private long cin;
+    private long nmTelephone ;
 
-    public Adhérent(double idAdh, String prenom,String nom,double cin,double nmTéléphone ) {
-        this.idAdh= idAdh;
+    public Adherent(long ID, String prenom, String nom, long cin, long nmTelephone ) {
+        this.ID = ID;
         this.prenom = prenom;
         this.nom = nom;
         this.cin = cin;
-        this.nmTéléphone = nmTéléphone ;
+        this.nmTelephone = nmTelephone ;
     }
 
-    public double getIdAdh() {
-        return idAdh;
+    public long getID() {
+        return ID;
     }
 
-    public void setIdAdh(double idAdh) {
-        this.idAdh = idAdh;
+    public void setID(long ID) {
+        this.ID = ID;
     }
 
     public String getPrenom() {
@@ -39,20 +39,20 @@ public class Adhérent {
         this.nom = nom;
     }
 
-    public double getCin() {
+    public long getCin() {
         return cin;
     }
 
-    public void setCin(double cin) {
+    public void setCin(long cin) {
         this.cin = cin;
     }
 
-    public double getNmTéléphone() {
-        return nmTéléphone;
+    public long getNmTelephone() {
+        return nmTelephone;
     }
 
-    public void setNmTéléphone(double nmTéléphone) {
-        this.nmTéléphone = nmTéléphone;
+    public void setNmTelephone(long nmTelephone) {
+        this.nmTelephone = nmTelephone;
     }
 
     public void afficherInfos() {
@@ -62,11 +62,11 @@ public class Adhérent {
     @Override
     public String toString() {
         return "entities.Adhérent{" +
-                "idAdh=" + idAdh +
+                "idAdh=" + ID +
                 ", prenom='" + prenom + '\'' +
                 ", nom='" + nom + '\'' +
                 ", cin=" + cin +
-                ", nmTéléphone=" + nmTéléphone +
+                ", nmTéléphone=" + nmTelephone +
                 '}';
     }
 }

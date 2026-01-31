@@ -5,12 +5,12 @@ import java.util.Date;
 public class Emprunt {
     private Date date ;
     private Livre livre ;
-    private Adhérent adhérent;
+    private Adherent adherent;
 
-    public Emprunt(Date date, Livre livre, Adhérent adhérent) {
+    public Emprunt(Date date, Livre livre, Adherent adherent) {
         this.date = date;
         this.livre = livre;
-        this.adhérent = adhérent;
+        this.adherent = adherent;
     }
 
     public Date getDate() {
@@ -29,12 +29,12 @@ public class Emprunt {
         this.livre = livre;
     }
 
-    public Adhérent getAdhérent() {
-        return adhérent;
+    public Adherent getAdhérent() {
+        return adherent;
     }
 
-    public void setAdhérent(Adhérent adhérent) {
-        this.adhérent = adhérent;
+    public void setAdhérent(Adherent adherent) {
+        this.adherent = adherent;
     }
 
     public void afficherInfos (){
@@ -47,7 +47,7 @@ public class Emprunt {
         return "entities.Emprunt{" +
                 "date=" + date +
                 ", livre=" + livre +
-                ", adhérent=" + adhérent +
+                ", adhérent=" + adherent +
                 '}';
     }
 }
