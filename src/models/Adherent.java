@@ -4,10 +4,10 @@ public class Adherent {
     private long ID;
     private String prenom;
     private String nom;
-    private long cin;
+    private String cin;
     private long nmTelephone ;
 
-    public Adherent(long ID, String prenom, String nom, long cin, long nmTelephone ) {
+    public Adherent(long ID, String prenom, String nom,String cin, long nmTelephone ) {
         this.ID = ID;
         this.prenom = prenom;
         this.nom = nom;
@@ -39,11 +39,11 @@ public class Adherent {
         this.nom = nom;
     }
 
-    public long getCin() {
+    public String getCin() {
         return cin;
     }
 
-    public void setCin(long cin) {
+    public void setCin(String cin) {
         this.cin = cin;
     }
 

@@ -5,15 +5,17 @@ public class Livre {
     private String titre;
     private boolean disponible;
     private String auteur;
+    private long reference ;
 
     public Livre() {
     }
 
-    public Livre(long id, String titre, boolean disponible, String auteur) {
+    public Livre(long id, String titre, boolean disponible, String auteur, long ref) {
         this.id = id;
         this.titre = titre;
         this.disponible = disponible;
         this.auteur = auteur;
+        this.reference = ref;
     }
 
     public long getId() {
@@ -48,6 +50,14 @@ public class Livre {
         this.auteur = auteur;
     }
 
+    public long getReference() {
+        return reference;
+    }
+
+    public void setReference(long reference) {
+        this.reference = reference;
+    }
+
     public void afficherInfos() {
         System.out.println("Les infos sur le livre : " + this);
 
@@ -55,11 +65,12 @@ public class Livre {
 
     @Override
     public String toString() {
-        return "entities.Livre{" +
-                "idLivre" + id +
-                ", titre='" + titre + "'" +
+        return "Livre{" +
+                "id=" + id +
+                ", titre='" + titre + '\'' +
                 ", disponible=" + disponible +
-                ", auteur='" + auteur + "'" +
+                ", auteur='" + auteur + '\'' +
+                ", reference=" + reference +
                 '}';
     }
 

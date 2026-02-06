@@ -1,23 +1,25 @@
 package models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Emprunt {
-    private Date date ;
-    private Livre livre ;
-    private Adherent adherent;
+    private LocalDate date ;
+    public Livre livre ;
+    public Adherent adherent;
 
-    public Emprunt(Date date, Livre livre, Adherent adherent) {
+
+    public Emprunt(LocalDate date, Livre livre, Adherent adherent) {
         this.date = date;
         this.livre = livre;
         this.adherent = adherent;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -29,11 +31,11 @@ public class Emprunt {
         this.livre = livre;
     }
 
-    public Adherent getAdhérent() {
+    public Adherent getAdherent() {
         return adherent;
     }
 
-    public void setAdhérent(Adherent adherent) {
+    public void setAdherent(Adherent adherent) {
         this.adherent = adherent;
     }
 

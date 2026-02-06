@@ -66,7 +66,7 @@
                         <properties/>
                         <border type="none"/>
                         <children>
-                          <grid id="ae2c1" binding="labelsPanel" layout-manager="GridLayoutManager" row-count="4" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="ae2c1" binding="labelsPanel" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints border-constraint="West"/>
                             <properties/>
@@ -145,6 +145,22 @@
                                 <properties>
                                   <text value=""/>
                                 </properties>
+                              </component>
+                              <component id="9fe40" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Rférence :"/>
+                                </properties>
+                              </component>
+                              <component id="cd991" class="javax.swing.JTextField" binding="txtref">
+                                <constraints>
+                                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                    <preferred-size width="150" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties/>
                               </component>
                             </children>
                           </grid>
@@ -347,14 +363,114 @@
                   </grid>
                 </children>
               </grid>
-              <grid id="d2a4b" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
+              <grid id="d2a4b" binding="empruntPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
                 <constraints>
-                  <tabbedpane title="Untitled"/>
+                  <tabbedpane title="empruntData"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <grid id="2611" binding="empTablePanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="b183a" class="javax.swing.JLabel">
+                        <constraints border-constraint="North"/>
+                        <properties>
+                          <horizontalAlignment value="0"/>
+                          <text value="Infos sur les emprunts :"/>
+                          <verticalAlignment value="0"/>
+                        </properties>
+                      </component>
+                      <component id="1dcf2" class="javax.swing.JTable" binding="empTable">
+                        <constraints border-constraint="Center"/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="821c1" binding="modEmpPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints border-constraint="North"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="a11e4" class="javax.swing.JLabel">
+                        <constraints border-constraint="North"/>
+                        <properties>
+                          <horizontalAlignment value="0"/>
+                          <text value="Modification des données :"/>
+                        </properties>
+                      </component>
+                      <grid id="3f084" binding="formsPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints border-constraint="Center"/>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="a5f26" class="javax.swing.JTextField" binding="txtCinSaisi">
+                            <constraints>
+                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <preferred-size width="150" height="-1"/>
+                              </grid>
+                            </constraints>
+                            <properties/>
+                          </component>
+                          <component id="df4b4" class="javax.swing.JTextField" binding="txtRefSaisi">
+                            <constraints>
+                              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <preferred-size width="150" height="-1"/>
+                              </grid>
+                            </constraints>
+                            <properties/>
+                          </component>
+                          <grid id="32f5c" binding="empbtnPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                            <constraints>
+                              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="a7a9c" class="javax.swing.JButton" binding="btnChercherAdherent">
+                                <constraints/>
+                                <properties>
+                                  <text value="chercher l'adhérent"/>
+                                </properties>
+                              </component>
+                              <component id="d0f1" class="javax.swing.JButton" binding="btnChercherLivre">
+                                <constraints/>
+                                <properties>
+                                  <text value="chercher le livre"/>
+                                </properties>
+                              </component>
+                              <component id="e97ab" class="javax.swing.JButton" binding="btnEmp">
+                                <constraints/>
+                                <properties>
+                                  <text value="effectuer l'emprunt"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <component id="c2d2" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <text value="CIN d'adhérent :"/>
+                            </properties>
+                          </component>
+                          <component id="249b3" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <text value="Référence du livre emprunté : "/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
               </grid>
             </children>
           </tabbedpane>
